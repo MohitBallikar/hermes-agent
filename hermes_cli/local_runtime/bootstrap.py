@@ -42,7 +42,6 @@ def _stop_at_exit() -> None:
             shutdown_local_runtime()
             # Re-raise so the default handler still terminates the process
             signal.signal(signum, signal.SIG_DFL)
-            import os
             os.kill(os.getpid(), signum)
 
         with suppress(ValueError):
